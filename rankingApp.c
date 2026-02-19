@@ -24,7 +24,7 @@ int displayCSVRankingList(const char *filename) {
     FILE *fp;
     fp = fopen(filename, "r");
 
-    if (fp == NULL) {
+    if (!fp) {
         printf("Error opening file %s\n", filename);
         return 1;
     }
@@ -53,7 +53,7 @@ int readCSVRankingList(const char *filename, Participant *list, int *length) {
        return 1;
    }
 
-   while(fgets(string_buffer, sizeof(string_buffer), fp) != NULL){
+   while(fgets(string_buffer, sizeof(string_buffer), fp)){
        char *token;
 
        // First name
