@@ -6,9 +6,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define STR_LEN   32
-#define LIST_LEN 100
+#include "listFileIO.h"
+#include "readCSVLine.h"
 
 typedef struct Participant {
     char first[STR_LEN];
@@ -21,21 +20,7 @@ typedef struct Participant {
 // Rueckgabewert: keiner
 
 int displayCSVRankingList(const char *filename) {
-    FILE *fp;
-    fp = fopen(filename, "r");
-
-    if (!fp) {
-        printf("Error opening file %s\n", filename);
-        return 1;
-    }
-
-    char string_buffer[100];
-
-    while (fscanf(fp, "%s", string_buffer) == 1){
-        printf("%s\n", string_buffer);
-    }
-    fclose(fp);
-    return 0;
+    showFileContents(filename);
 }
 
 //-----------------------------------------------------------------------------
@@ -43,39 +28,29 @@ int displayCSVRankingList(const char *filename) {
 // Rueckgabewert: Anzahl Teilnehmer
 
 int readCSVRankingList(const char *filename, Participant *list, int *length) {
-   FILE *fp;
-   fp = fopen(filename, "r");
    int linesCount=0;
    char string_buffer[100];
 
-   if (fp == NULL) {
-       printf("Error opening file %s\n", filename);
-       return 1;
-   }
-
-   while(fgets(string_buffer, sizeof(string_buffer), fp)){
+   while(readCSVLine(filename, string_buffer, STR_LEN, &linesCount)){
        char *token;
 
        // First name
-        token = strtok(string_buffer, ";");
-        if (token != NULL)
-            strcpy(list[linesCount].first, token);
+       token = strtok(string_buffer, ";");
+       if (token)
+         strcpy(list[linesCount].first, token);
 
-        // Last name
-        token = strtok(NULL, ";");
-        if (token != NULL)
-            strcpy(list[linesCount].name, token);
+       // Last name
+       token = strtok(NULL, ";");
+       if (token)
+         strcpy(list[linesCount].name, token);
 
-        // Rank
-        token = strtok(NULL, ";");
-        if (token != NULL)
-            list[linesCount].rank = atoi(token);
+       // Rank
+       token = strtok(NULL, ";");
+       if (token)
+         list[linesCount].rank = atoi(token);
 
-       linesCount++;
    }
 
-   fclose(fp);
-   
    *length=linesCount;
    
    return 0;
