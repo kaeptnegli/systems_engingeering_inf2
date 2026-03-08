@@ -59,8 +59,7 @@ int main (void) {
                 int * store_array = malloc(groesse * sizeof(int));
                 copyArr(zahlen, store_array, groesse);
                 groesse += 3;
-                free(zahlen);
-                zahlen = malloc(groesse * sizeof(int));
+                zahlen = realloc(groesse * sizeof(int));
                 copyArr(store_array, zahlen, groesse);
             }
             
