@@ -17,10 +17,12 @@
 
 #include "Position.h"
 #include "Direction.h"
+#include "CppHelper.h"
 
 class Area;  // forward declaration - sufficient for use as reference
 
 class Hoover {
+NO_COPY_NO_MOVE(Hoover);
 public:
 	explicit Hoover(const Area &area);
 	void move(const Area &area);

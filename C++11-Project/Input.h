@@ -16,9 +16,10 @@
 #define _INPUT_H_
 
 #include "Utilities.h"
+#include "CppHelper.h"
 
 class Input {
-
+NO_COPY_NO_MOVE(Input);
 public:
     Input();
     ~Input();

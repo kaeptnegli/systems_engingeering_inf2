@@ -16,6 +16,7 @@
 #define _CANVAS_TERMINAL_H_
 
 #include <string>
+#include "CppHelper.h"
 
 class Timing;  // forward declaration - sufficient for use as references
 class Area;    // forward declaration - sufficient for use as references
@@ -24,6 +25,7 @@ class Hoover;  // forward declaration - sufficient for use as references
 
 
 class CanvasTerminal {
+NO_COPY_NO_MOVE(CanvasTerminal);
 public:
 	CanvasTerminal(const Area &area, const Timing &timing, State &state);
 	void render(double elapsed, const Hoover &hoover, const std::string& strategyName, bool isStop);

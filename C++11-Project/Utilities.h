@@ -17,6 +17,7 @@
 
 #include <iostream>
 #include <unistd.h>
+#include "CppHelper.h"
 #ifndef _WIN32
 #include <termios.h>
 #endif

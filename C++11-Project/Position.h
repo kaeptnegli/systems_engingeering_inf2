@@ -15,6 +15,10 @@
 #ifndef _POSITION_H_
 #define _POSITION_H_
 
+#include "CppHelper.h"
+
+//This is a value Type!
+
 class Direction;    // forward declaration - sufficient for use as references
 
 class Position {

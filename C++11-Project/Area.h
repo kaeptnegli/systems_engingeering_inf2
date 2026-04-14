@@ -18,8 +18,10 @@
 #include <cstddef>
 
 #include "Position.h"
+#include "CppHelper.h"
 
 class Area {
+NO_COPY_NO_MOVE(Area);
 public:
 	bool atLeft  (double x) const { return x <= 1; }            // is it inside one unit around the area
 	bool atRight (double x) const { return x >= kWidth - 2; }   // is it inside one unit around the area

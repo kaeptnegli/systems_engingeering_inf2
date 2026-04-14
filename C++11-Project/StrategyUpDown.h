@@ -16,6 +16,7 @@
 #define _STRATEGY_UP_DOWN_H_
 
 #include "Position.h"
+#include "CppHelper.h"
 
 #include <string>
 
@@ -23,6 +24,7 @@ class Area;    // forward declaration - sufficient for use as references
 class Hoover;  // forward declaration - sufficient for use as references
 
 class StrategyUpDown {
+NO_COPY_NO_MOVE(StrategyUpDown);
 public:
 	StrategyUpDown(const Area &area, Hoover &hoover);
 	bool move();

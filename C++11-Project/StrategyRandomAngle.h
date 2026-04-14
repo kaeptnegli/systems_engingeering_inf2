@@ -16,12 +16,14 @@
 #define _STRATEGY_RANDOM_ANGLE_H_
 
 #include <string>
+#include "CppHelper.h"
 
 class Random;  // forward declaration - sufficient for use as references
 class Area;    // forward declaration - sufficient for use as references
 class Hoover;  // forward declaration - sufficient for use as references
 
 class StrategyRandomAngle {
+NO_COPY_NO_MOVE(StrategyRandomAngle);
 public:
 	StrategyRandomAngle(const Area &area, Hoover &hoover);
 	bool move();

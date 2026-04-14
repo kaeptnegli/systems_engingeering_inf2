@@ -15,6 +15,10 @@
 #ifndef _DIRECTION_H_
 #define _DIRECTION_H_
 
+#include "CppHelper.h"
+
+//This is a Value-Type!
+
 class Direction {
 public:
 	Direction() = default;

@@ -15,7 +15,10 @@
 #ifndef _RANDOM_H_
 #define _RANDOM_H_
 
+#include "CppHelper.h"
+
 class Random {
+NO_COPY_NO_MOVE(Random);
 public:
 	static Random& getInstance() { return inst_; }
 	double getAngle() const;

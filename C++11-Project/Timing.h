@@ -16,8 +16,10 @@
 #define _TIMING_H_
 
 #include <chrono>
+#include "CppHelper.h"
 
 class Timing {
+NO_COPY_NO_MOVE(Timing);
 public:
     Timing();
 

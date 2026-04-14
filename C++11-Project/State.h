@@ -17,12 +17,14 @@
 
 #include <array>
 #include "Area.h"   // height, width
+#include "CppHelper.h"
 
 class Timing;    // forward declaration - sufficient for use as reference
 class Position;  // forward declaration - sufficient for use as reference
 class Hoover;    // forward declaration - sufficient for use as reference
 
 class State {
+NO_COPY_NO_MOVE(State);
 public:
 	using ColT    = std::array<char, Area::getWidth()>;
 	using MatrixT = std::array<ColT, Area::getHeight()>;
